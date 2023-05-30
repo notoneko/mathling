@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px -3px 5px rgba(0,0,0,0.1), 0px 3px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 0 0 calc(50% - 20px);
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+	<div class="grey-section"></div>
+	<div class="container">
+		<div class="card">
+			<h2>1. Напишите функцию, которая принимает на вход текст на русском языке и возвращает количество гласных букв в нём.</h2>
+		</div>
+		<div class="card">
+			<h2>2. Напишите функцию, которая принимает на вход текст и возвращает самое длинное слово (последовательность символов от пробела до пробела).</h2>
+		</div>
+		<div class="card">
+			<h2>3. Напишите функцию, которая будет определять, является ли введённая строка палиндромом. Пробелы и регистр не должны учитываться.</h2>
+		</div>
+		<div class="card">
+			<h2>4. Напишите функцию, которая принимает на вход предложение и возвращает его же с обратным порядком слов.</h2>
+		</div>
+		<div class="card">
+			<h2 style="margin-bottom: 15px">5. Напишите программу, которая будет считать манулов.</h2>
+            <table>
+                <tr>
+                    <th>
+                        <p>Уровень</p>
+                    </th>
+                    <th>
+                        <p>Пример ввода</p>
+                    </th>
+                    <th>
+                        <p>Пример вывода</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>1</p>
+                    </td>
+                    <td>
+                        <p>4</p>
+                    </td>
+                    <td>
+                        <p>1 манул, 2 манул, 3 манул, 4 манул</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>2</p>
+                    </td>
+                    <td>
+                        <p>4</p>
+                    </td>
+                    <td>
+                        <p>один манул, два манул, три манул, четыре манул</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>3</p>
+                    </td>
+                    <td>
+                        <p>4</p>
+                    </td>
+                    <td>
+                        <p>один манул, два манула, три манула, четыре манула</p>
+                    </td>
+                </tr>
+            </table>
+            <p>Подсказка: для реализации уровня 2 нужно внимательно рассмотреть все случаи, для уровня 3 воспользоваться сторонними библиотеками для изменения по падежам (например, pymorphy2).</p>
+		</div>
+	</div>
+</body>
+</html>

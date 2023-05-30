@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not current_user.is_authenticated %}
+<h1 class="title">
+  Добро пожаловать на спецкурс "Матлингвистика"!
+</h1>
+<h2 class="subtitle">
+  Зарегистрируйтесь или войдите, чтобы продолжить.
+</h2>
+{% endif %}
+{% if current_user.is_authenticated %}
+<div class="slider-container">
+  <div class="slide">
+    <p>Фундаментальная и прикладная лингвистика – это необычное направление, которое объединяет в себе самые разные научные дисциплины, такие как лингвистика, математика, информатика, когнитивная наука и нейронаука. Оно предназначено для подготовки специалистов, которые будут способны применять математические методы для описания и исследования языка.</p>
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='images/mathling_fields.jpg') }}">
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='images/mathling_rne.jpg') }}">
+  </div>
+
+  <div class="slider-controls">
+      <button class="prev-button">
+          <span class="material-icons">arrow_left</span>
+      </button>
+      <button class="prev-button">
+          <span class="material-icons">arrow_right</span>
+      </button>
+  </div>
+</div>
+
+<style>
+  .slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slider-controls {
+    margin-top: 10px;
+  }
+
+  .slider-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+  }
+
+  .slider-controls svg {
+    fill: #000;
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s;
+  }
+
+  .slider-controls button:hover svg {
+    fill: #555;
+  }
+
+
+</style>
+
+<script>
+  var slides = document.getElementsByClassName("slide");
+  var currentSlide = 0;
+  var prevButton = document.querySelector(".prev-button");
+  var nextButton = document.querySelector(".next-button");
+
+  function showSlide(slideIndex) {
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+    }
+    slides[slideIndex].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide++;
+    if (currentSlide >= slides.length) {
+      currentSlide = 0;
+    }
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide--;
+    if (currentSlide < 0) {
+      currentSlide = slides.length - 1;
+    }
+    showSlide(currentSlide);
+  }
+
+  prevButton.addEventListener("click", prevSlide);
+  nextButton.addEventListener("click", nextSlide);
+
+  showSlide(currentSlide);
+</script>
+
+<!-- Material icons library -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endif %}
+{% endblock %}

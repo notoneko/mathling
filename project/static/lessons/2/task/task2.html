@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px -3px 5px rgba(0,0,0,0.1), 0px 3px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 0 0 calc(50% - 20px);
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+	<div class="grey-section"></div>
+	<div class="container">
+		<div class="card">
+			<h2>1. Написать программу "Калькулятор", которая позволяет пользователю выбрать два числа и узнать результат любой операции над ними: сложение, вычитание, умножение, деление.</h2>
+            <table>
+                <tr>
+                    <th>
+                        <p>Пример ввода</p>
+                    </th>
+                    <th>
+                        <p>Пример вывода</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>2 + 3</p>
+                    </td>
+                    <td>
+                        <p>2 + 3 = 5</p>
+                    </td>
+                </tr>
+            </table>
+		</div>
+		<div class="card">
+			<h2>2. Дополните программу "Калькулятор", дописав её так, чтобы она переводила введённое выражение и посчитанный результат в слова.</h2>
+            <table>
+                <tr>
+                    <th>
+                        <p>Пример ввода</p>
+                    </th>
+                    <th>
+                        <p>Пример вывода</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>2 + 3</p>
+                    </td>
+                    <td>
+                        <p>2 + 3 = 5</p>
+                        <p>два плюс три равно пять</p>
+                    </td>
+                </tr>
+            </table>
+		</div>
+		<div class="card">
+			<h2>3. Написать программу, которая запрашивает у пользователя пароль и в случае совпадения с нужным выдаёт ему некоторую секретную информацию. В случае ошибки прощается с пользователем.</h2>
+		</div>
+		<div class="card">
+			<h2>4. С помощью метода your_string.replace(шаблон, замена) заменить в строке your_string все двойные пробелы на одинарные. Вывести конечный вариант текста на экран.</h2>
+		</div>
+		<div class="card">
+			<h2>5. Написать программу, которая пытается угадать, является введенное пользователем русское имя женским или мужским.</h2>
+            <p>Подсказка: метод your_string.endswith(some_pattern) возвращает True, если строка your_string заканчивается шаблоном some_pattern.</p>
+		</div>
+		<div class="card">
+			<h2>6. Пользователь вводит строку с адресом электронной почты. Вывести на экран имя почтового сервера (google, mail или др), на котором эта почта заведена.</h2>
+            <table>
+                <tr>
+                    <th>
+                        <p>Пример ввода</p>
+                    </th>
+                    <th>
+                        <p>Пример вывода</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>ivanivanov@gmail.com</p>
+                    </td>
+                    <td>
+                        <p>gmail.com</p>
+                    </td>
+                </tr>
+            </table>
+		</div>
+		<div class="card">
+			<h2>7. Дан путь к файлу. Написать программу, которая выводит на экран все составляющие этого пути.</h2>
+            <table>
+                <tr>
+                    <th>
+                        <p>Пример ввода</p>
+                    </th>
+                    <th>
+                        <p>Пример вывода</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>C:\MyDocs\school\file.txt</p>
+                    </td>
+                    <td>
+                        <p>C, MyDocs, school</p>
+                    </td>
+                </tr>
+            </table>
+		</div>
+		<div class="card">
+			<h2>8. Пользователь делает вклад в размере a рублей сроком на years лет под p% годовых (каждый год размер его вклада увеличивается на p процентов. Эти деньги прибавляются к сумме вклада, и на них в следующем году тоже будут проценты). Написать функцию deposit(), принимающую аргументы a, years и p и возвращающую сумму, которая будет на счету пользователя.</h2>
+		</div>
+	</div>
+</body>
+</html>

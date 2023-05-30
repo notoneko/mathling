@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <title> {% block title %} Добавить занятие | {% endblock %} </title>
+</head>
+    <div class="column is-6 is-offset-3">
+        <h3 class="title">Добавить занятие</h3>
+        <div class="box">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }} <a href="{{ url_for('admin.edit_lesson') }}">Изменить</a>.
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form method="POST" action="/lessons/add" enctype="multipart/form-data">
+                <div class="field">
+                    <div class="control">
+                        <label>
+                            <span class="mb-6">Номер занятия</span>
+                            <input class="input" type="text" name="lesson_number" placeholder="Введите номер занятия" autofocus="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label>
+                            <span class="mb-3">Презентация</span>
+                            <input class="file input" type="file" name="lesson_pdf" placeholder="Презентация" autofocus="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label>
+                            <span class="mb-3">Задание</span>
+                            <input class="file input" type="file" name="task" placeholder="Задание" autofocus="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label>
+                            <span class="mb-3">Дополнительные файлы</span>
+                            <input class="file input" type="file" name="additional_files" placeholder="Дополнительные файлы" autofocus="" multiple>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button is-block is-info is-fullwidth is-warning"> <strong>Добавить</strong> </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

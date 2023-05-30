@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <title>{% block title %}{% endblock %}MathLing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <style>
+        .cat-navbar {
+            padding: 0.5rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="hero is-white is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar cat-navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="{{ url_for('main.index') }}">
+                        <img src="{{ url_for('static', filename='images/MathLingvLogo.png') }}" alt="MathLingv">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="container">
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a href="{{ url_for('main.index') }}" class="navbar-item is-light">Главная</a>
+                            {% if current_user.is_authenticated and not current_user.is_admin %}
+                            <a href="{{ url_for('main.lessons') }}" class="navbar-item is-light">Занятия</a>
+                            {% endif %}
+                            {% if current_user.is_admin %}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Занятия
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <a href="{{ url_for('admin.add_lesson_post') }}" class="navbar-item">
+                                        Добавить
+                                    </a>
+                                    <a href="{{ url_for('admin.get_lesson_by_number') }}" class="navbar-item">
+                                        Изменить
+                                    </a>
+                                    <a href="{{ url_for('admin.check_lesson_post') }}" class="navbar-item">
+                                        Проверить
+                                    </a>
+                                    <a href="{{ url_for('main.lessons') }}" class="navbar-item">
+                                        Посмотреть
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="navbar-end">
+                            {% if not current_user.is_authenticated %}
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a href="{{ url_for('auth.login') }}" class="button is-warning">
+                                        <strong>Войти</strong>
+                                    </a>
+                                    <a href="{{ url_for('auth.signup') }}" class="button is-light">Зарегистрироваться</a>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if current_user.is_authenticated %}
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a href="{{ url_for('auth.logout') }}" class="button is-light">Выйти</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

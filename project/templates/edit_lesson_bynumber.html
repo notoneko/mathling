@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <title> {% block title %} Изменить занятие | {% endblock %} </title>
+</head>
+<div class="column is-6 is-offset-3">
+    <h3 class="title">Изменить занятие</h3>
+    <div class="box">
+        <form method="POST" action="/lessons/edit/{{ lesson.lesson_number }}" enctype="multipart/form-data">
+            <div class="field">
+                <div class="control">
+                    <label>
+                        <span class="mb-3">Презентация</span>
+                        <input class="file input" type="file" name="lesson_pdf" placeholder="Презентация" autofocus="">
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <label>
+                        <span class="mb-3">Задание</span>
+                        <input class="file input" type="file" name="task" placeholder="Задание" autofocus="">
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <label>
+                        <span class="mb-3">Дополнительные файлы</span>
+                        <input class="file input" type="file" name="additional_files" placeholder="Дополнительные файлы" autofocus="" multiple>
+                    </label>
+                </div>
+            </div>
+            {% if lesson.additional_files %}
+            <label> <span class="mb-3" style="margin-left: -70px">Выберите дополнительные файлы, которые хотите удалить</span></label>
+                {% set files = lesson.additional_files.split(' -|- ') %}
+                {% for file in files %}
+                    <div class="file-info" style="margin-bottom: 10px; margin-top: 10px">
+                        <label>
+                            <input class="checkbox" type="checkbox" name="delete_additional_files[]" value="{{ file }}">
+                            <span>{{ file }}</span>
+                        </label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+            <button class="button is-block is-info is-fullwidth is-warning"> <strong>Изменить</strong> </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

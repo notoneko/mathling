@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+<head>
+    <title> {% block title %} Задания к занятию {{ lesson_number }} | {% endblock %} </title>
+</head>
+{% block content %}
+<body>
+    <div>
+        {{ content | safe }}
+    </div>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-centered">
+                <form method="POST">
+                    <div class="field is-centered">
+                        <label class="label">Ссылка на GitHub-репозиторий с выполненным заданием:</label>
+                        <div class="control is-centered">
+                            <input class="input" type="text" name="link_to_github" placeholder="Введите ссылку" autofocus="">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-warning" type="submit">Отправить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if lesson.additional_files %}
+        <div class="columns is-centered">
+            <div class="column is-centered">
+                <label class="label">Дополнительные файлы:</label>
+                {% set files = lesson.additional_files.split(' -|- ') %}
+                {% for file in files %}
+                <div>
+                    <a href="{{ url_for('main.download_additional_file', lesson_number=lesson.lesson_number, file_name=file) }}">{{ file }}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}
