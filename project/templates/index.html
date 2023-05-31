@@ -13,19 +13,21 @@
 <div class="slider-container">
   <div class="slide">
     <p>Фундаментальная и прикладная лингвистика – это необычное направление, которое объединяет в себе самые разные научные дисциплины, такие как лингвистика, математика, информатика, когнитивная наука и нейронаука. Оно предназначено для подготовки специалистов, которые будут способны применять математические методы для описания и исследования языка.</p>
+    <p>Кроме того, фундаментальная и прикладная лингвистика имеет множество практических применений. Специалисты в этой области могут работать в различных сферах, связанных с языком, таких как компьютерная лингвистика, машинный перевод, разработка языковых моделей для искусственного интеллекта, создание лингвистических электронных ресурсов и многое другое.</p>
+    <p>Фундаментальная и прикладная лингвистика является ключевым направлением для развития современных технологий и науки, так как язык является основой любой коммуникации и информации. Развитие этой области позволяет создавать более эффективные и точные инструменты для обработки языка, что в свою очередь способствует развитию многих других областей, таких как бизнес, медиа, наука и образование.</p>
   </div>
   <div class="slide">
-    <img src="{{ url_for('static', filename='images/mathling_fields.jpg') }}">
+    <a href="https://education.nsu.ru/linguistics/" target="_blank"><img src="{{ url_for('static', filename='images/mathling_fields.jpg') }}"></a>
   </div>
   <div class="slide">
-    <img src="{{ url_for('static', filename='images/mathling_rne.jpg') }}">
+      <a href="https://www.nsu.ru/n/humanities-institute/departments/kafedra-fipl/" target="_blank"><img src="{{ url_for('static', filename='images/mathling_rne.jpg') }}"></a>
   </div>
 
   <div class="slider-controls">
       <button class="prev-button">
           <span class="material-icons">arrow_left</span>
       </button>
-      <button class="prev-button">
+      <button class="next-button">
           <span class="material-icons">arrow_right</span>
       </button>
   </div>
@@ -47,6 +49,8 @@
   }
 
   .slider-controls {
+    display: flex;
+    justify-content: center; /* Move to center */
     margin-top: 10px;
   }
 
@@ -56,21 +60,20 @@
     cursor: pointer;
     outline: none;
     padding: 0;
+    font-size: 24px; /* Increase button size */
+    margin: 0 10px; /* Add margin for spacing */
   }
 
-  .slider-controls svg {
-    fill: #000;
-    width: 24px;
-    height: 24px;
-    transition: fill 0.3s;
+  .slider-controls span {
+    font-family: "Material Icons";
+    transition: color 0.3s;
   }
 
-  .slider-controls button:hover svg {
-    fill: #555;
+  .slider-controls button:hover span {
+    color: #555;
   }
-
-
 </style>
+
 
 <script>
   var slides = document.getElementsByClassName("slide");
